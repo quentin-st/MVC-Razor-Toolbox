@@ -1,0 +1,4 @@
+/.idea/
+
+# Excluded packaged versions
+MVC-Razor-Toolbox.*.*.*.nupkg
