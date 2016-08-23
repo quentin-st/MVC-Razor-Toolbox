@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>MVC-Razor-Toolbox</id>
+    <version>1.0.0</version>
+    <authors>Quentin Stoeckel</authors>
+    <owners>Quentin Stoeckel</owners>
+    <licenseUrl>https://github.com/chteuchteu/MVC-Razor-Toolbox/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/chteuchteu/MVC-Razor-Toolbox/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Bootstrap DisplayTemplates, EditorTemplates & util classes for Razor templating engine</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>MVC Razor Bootstrap DisplayTemplates EditorTemplates</tags>
+  </metadata>
+</package>
