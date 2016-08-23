@@ -12,6 +12,7 @@ files = [
     'Helpers/Razor/HtmlHelpers.cs',
     'Helpers/Razor/TemplatesConsts.cs',
     'Helpers/FlashMessage.cs',
+
     'Modules/Shared/Views/Partial/DisplayTemplates/Boolean.cshtml',
     'Modules/Shared/Views/Partial/DisplayTemplates/Currency.cshtml',
     'Modules/Shared/Views/Partial/DisplayTemplates/Date.cshtml',
@@ -22,6 +23,8 @@ files = [
     'Modules/Shared/Views/Partial/DisplayTemplates/MultilineText.cshtml',
     'Modules/Shared/Views/Partial/DisplayTemplates/Number.cshtml',
     'Modules/Shared/Views/Partial/DisplayTemplates/String.cshtml',
+
+    'Modules/Shared/Views/Partial/EditorTemplates/_Label.cshtml',
     'Modules/Shared/Views/Partial/EditorTemplates/Boolean.cshtml',
     'Modules/Shared/Views/Partial/EditorTemplates/Currency.cshtml',
     'Modules/Shared/Views/Partial/EditorTemplates/Date.cshtml',

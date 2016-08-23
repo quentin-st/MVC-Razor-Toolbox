@@ -7,10 +7,7 @@
 }
 
 <div class="form-group@(Html.ValidationErrorFor(m => m, " has-error"))@(ViewData.ModelMetadata.IsRequired ? " required" : "")">
-    @if (showLabel)
-    {
-        @Html.LabelFor(m => m, new {@class = HtmlClasses.Label})
-    }
+    @Html.Partial("~/Modules/Shared/Views/Partial/EditorTemplates/_Label.cshtml")
 
     <div class="@controlsClasses">
         <div class="input-group input-file">

@@ -7,7 +7,7 @@
 }
 
 <div class="form-group@(Html.ValidationErrorFor(m => m, " has-error"))@(ViewData.ModelMetadata.IsRequired?" required":"")">
-    @Html.LabelFor(m => m, new { @class = "control-label" })
+    @Html.Partial("~/Modules/Shared/Views/Partial/EditorTemplates/_Label.cshtml")
 
     <div class="controls @HtmlClasses.Control">
         @Html.Password(

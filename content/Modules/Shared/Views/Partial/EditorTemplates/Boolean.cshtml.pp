@@ -18,7 +18,7 @@
 
 
 <div class="form-group@(Html.ValidationErrorFor(m => m, " has-error"))">
-    @Html.LabelFor(m => m, new { @class = HtmlClasses.Label })
+    @Html.Partial("~/Modules/Shared/Views/Partial/EditorTemplates/_Label.cshtml")
 
     <div class="controls @HtmlClasses.Control">
         @Html.CheckBox(
