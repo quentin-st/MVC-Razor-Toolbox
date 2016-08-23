@@ -2,24 +2,15 @@
 @model DateTime?
 
 @{
-    DateTime dt;
-    if (Model.HasValue)
-    {
-        dt = (DateTime)Model;
-    }
-    else
-    {
-        dt = DateTime.Now;
-    }
-
     var format = System.Threading.Thread.CurrentThread.CurrentUICulture.DateTimeFormat.ShortDatePattern;
+    var date = Model.HasValue ? ((DateTime) Model).ToString(format) : null;
     
     ViewBag.htmlAttributes = new RouteValueDictionary
     {
         {"class", "datepicker"},
-        {"Value", dt.ToString(format)},
+        {"Value", date},
         {"data_provide", "datepicker"},
-        {"data_date", dt.ToShortDateString()},
+        {"data_date", date},
         {"data_date_format", format.Replace("M", "m")},
         {"placeholder", ViewBag.placeholder},
         {"data-date-min", ViewBag.min_date != null ? HtmlHelpers.ToJavascriptDate(ViewBag.min_date) : null},
