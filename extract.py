@@ -66,7 +66,11 @@ for file_path in files:
         print('Could not find resource {}'.format(src_path))
         sys.exit(1)
 
-    shutil.copy(src_path, dest_path)
+    # Create directories if necessary
+    os.makedirs(os.path.dirname(dest_path), exist_ok=True)
+
+    # Copy
+    shutil.copyfile(src_path, dest_path)
     print('  - {}'.format(file_path))
 
     # Update namespace
@@ -74,7 +78,7 @@ for file_path in files:
     with open(dest_path, 'r') as fh:
         for line in fh:
             if args.namespace in line:
-                line = line.replace(generic_namespace, args.namespace)
+                line = line.replace(args.namespace, generic_namespace)
 
             lines.append(line)
 
