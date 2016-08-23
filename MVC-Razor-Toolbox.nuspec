@@ -8,7 +8,7 @@
     <licenseUrl>https://github.com/chteuchteu/MVC-Razor-Toolbox/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/chteuchteu/MVC-Razor-Toolbox/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Bootstrap DisplayTemplates, EditorTemplates & util classes for Razor templating engine</description>
+    <description>Bootstrap DisplayTemplates, EditorTemplates and util classes for Razor templating engine</description>
     <releaseNotes></releaseNotes>
     <copyright>Copyright 2016</copyright>
     <tags>MVC Razor Bootstrap DisplayTemplates EditorTemplates</tags>
