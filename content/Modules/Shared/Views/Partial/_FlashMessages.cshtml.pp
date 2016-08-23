@@ -1,4 +1,4 @@
-﻿@using $rootnamespace$.Helpers
+@using $rootnamespace$.Helpers
 @using $rootnamespace$.Helpers.Razor.HtmlExtensions
 
 @foreach (var message in FlashMessage.GetMessages(TempData))

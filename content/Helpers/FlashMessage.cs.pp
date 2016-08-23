@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace $rootnamespace$.Helpers
@@ -40,9 +42,13 @@ namespace $rootnamespace$.Helpers
 
         public static List<FlashMessage> GetMessages(TempDataDictionary tempData)
         {
-            return HasMessages(tempData)
+            var list = HasMessages(tempData)
                 ? (List<FlashMessage>)tempData[TempDataKey]
                 : new List<FlashMessage>();
+
+            return HttpContext.Current.IsDebuggingEnabled
+                ? list
+                : (List<FlashMessage>)list.Where(m => !m.IsDebug); // Exclude debug messages
         }
     }
 

@@ -1,4 +1,4 @@
-﻿@using $rootnamespace$.Helpers.Razor
+@using $rootnamespace$.Helpers.Razor
 @using $rootnamespace$.Helpers.Razor.HtmlExtensions
 @model object
 
