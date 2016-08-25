@@ -7,6 +7,7 @@ DisplayTemplates are supplied for the following types:
  - [DateTime](../content/Modules/Shared/Views/Partial/DisplayTemplates/DateTime.cshtml.pp)
  - [Decimal](../content/Modules/Shared/Views/Partial/DisplayTemplates/Decimal.cshtml.pp)
  - [EmailAddress](../content/Modules/Shared/Views/Partial/DisplayTemplates/EmailAddress.cshtml.pp)
+ - [Int32](../content/Modules/Shared/Views/Partial/DisplayTemplates/Int32.cshtml.pp)
  - [MultilineText](../content/Modules/Shared/Views/Partial/DisplayTemplates/MultilineText.cshtml.pp)
  - [Number](../content/Modules/Shared/Views/Partial/DisplayTemplates/Number.cshtml.pp)
  - [String](../content/Modules/Shared/Views/Partial/DisplayTemplates/String.cshtml.pp)
@@ -27,6 +28,7 @@ Every partial inherits from [`DisplayBase.cshtml](../content/Modules/Shared/View
 | DateTime      |                                              |                | Based on Date                        |
 | Decimal       |                                              | `.text-number` |                                      |
 | EmailAddress  |                                              |                |                                      |
+| Int32         |                                              | `.text-number` |                                      |
 | MultilineText | `Html.Nl2br()`                               |                |                                      |
 | Number        |                                              | `.text-number` |                                      |
 | String        |                                              |                |                                      |

@@ -20,6 +20,7 @@ files = [
     'Modules/Shared/Views/Partial/DisplayTemplates/Decimal.cshtml',
     'Modules/Shared/Views/Partial/DisplayTemplates/DisplayBase.cshtml',
     'Modules/Shared/Views/Partial/DisplayTemplates/EmailAddress.cshtml',
+    'Modules/Shared/Views/Partial/DisplayTemplates/Int32.cshtml',
     'Modules/Shared/Views/Partial/DisplayTemplates/MultilineText.cshtml',
     'Modules/Shared/Views/Partial/DisplayTemplates/Number.cshtml',
     'Modules/Shared/Views/Partial/DisplayTemplates/String.cshtml',
