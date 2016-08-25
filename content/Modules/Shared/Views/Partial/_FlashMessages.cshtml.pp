@@ -4,7 +4,7 @@
 @foreach (var message in FlashMessage.GetMessages(TempData))
 {
     <div class="bs-callout bs-callout-@message.GetCSSClass()">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" class="bs-close">×</span></button>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" class="bs-close">&times;</span></button>
 
         @if (message.Title != null)
         {
