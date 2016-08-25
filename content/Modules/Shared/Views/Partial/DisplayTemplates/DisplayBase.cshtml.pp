@@ -31,6 +31,11 @@ else if (ViewBag.kind == "form-group")
 
         <div class="controls @HtmlClasses.ControlRaw @ViewBag.valueClass">
             @value
+
+            @if (ViewBag.suffix != null)
+            {
+                @ViewBag.suffix
+            }
         </div>
     </div>
 }
