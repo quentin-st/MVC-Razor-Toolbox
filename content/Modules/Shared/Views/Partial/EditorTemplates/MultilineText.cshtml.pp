@@ -5,7 +5,7 @@
 @{
     var htmlAttributes = new RouteValueDictionary
     {
-        {"class", HtmlClasses.Input + " input-block-level " + (ViewBag.ClearTextField == true ? "clear-text-field" : "")}
+        {"class", HtmlClasses.Input + " input-block-level "}
     };
     if (ViewBag.placeholder != null)
     {
