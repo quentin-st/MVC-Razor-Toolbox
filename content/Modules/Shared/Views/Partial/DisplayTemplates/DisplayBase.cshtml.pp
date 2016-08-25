@@ -11,11 +11,12 @@
     }
 
     var value = ViewBag.value ?? Model;
+    var debugAttribute = HttpContext.Current.IsDebuggingEnabled ? ViewData.ModelMetadata.ModelType.Name : null;
 }
 
 @if (ViewBag.kind == "raw")
 {
-    <div class="@ViewBag.valueClass">
+    <div class="@ViewBag.valueClass" @if (debugAttribute != null) { <text>data-displaytemplate-type="@debugAttribute"</text> }>
         @value
 
         @if (ViewBag.suffix != null)

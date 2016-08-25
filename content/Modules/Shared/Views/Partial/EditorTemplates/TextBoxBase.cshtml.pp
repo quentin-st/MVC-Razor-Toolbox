@@ -36,10 +36,12 @@
 
     var showLabel = ViewBag.noLabel == null;
     var controlsClasses = showLabel ? HtmlClasses.Label : "control-label";
+    var debugAttribute = HttpContext.Current.IsDebuggingEnabled ? ViewData.ModelMetadata.ModelType.Name : null;
 }
 
 
-<div class="form-group@(Html.ValidationErrorFor(m => m, " has-error"))@(ViewData.ModelMetadata.IsRequired ? " required" : "")">
+<div class="form-group@(Html.ValidationErrorFor(m => m, " has-error"))@(ViewData.ModelMetadata.IsRequired ? " required" : "")"
+     @if (debugAttribute != null) { <text> data-editortemplate-type="@debugAttribute" </text>  }>
     @Html.Partial("~/Modules/Shared/Views/Partial/EditorTemplates/_Label.cshtml")
 
     <div class="controls @controlsClasses">
@@ -48,6 +50,6 @@
             value,
             htmlAttributes)
 
-        @Html.ValidationMessageFor(m => m, null, new {@class = "help-block"})
+        @Html.ValidationMessageFor(m => m, null, new { @class = "help-block" })
     </div>
 </div>
