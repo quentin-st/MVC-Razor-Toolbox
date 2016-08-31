@@ -35,7 +35,7 @@
     }
 
     var showLabel = ViewBag.noLabel == null;
-    var controlsClasses = showLabel ? HtmlClasses.Label : "control-label";
+    var controlsClasses = showLabel ? HtmlClasses.Control : "control-label";
     var debugAttribute = HttpContext.Current.IsDebuggingEnabled ? ViewData.ModelMetadata.ModelType.Name : null;
 }
 
