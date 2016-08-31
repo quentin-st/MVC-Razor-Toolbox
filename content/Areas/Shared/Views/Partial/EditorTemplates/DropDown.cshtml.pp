@@ -27,9 +27,12 @@
         }
     }
 
-    if (ViewBag.@readonly != null)
+    // When using the readonly attribute, the <select> will still be usable
+    // (read http://stackoverflow.com/questions/1636103/html-dropdownlist-disabled-readonly)
+    // We'll switch it to disabled, and add a hidden field so the value will still be sent to the controller on post
+    if (ViewBag.@readonly != null || ViewBag.disabled != null)
     {
-        htmlAttributes["readonly"] = ViewBag.@readonly;
+        htmlAttributes["disabled"] = "disabled";
     }
 }
 
@@ -45,7 +48,12 @@
         {
             @Html.DropDownListFor(m => m, (SelectList)ViewData["selectList"], string.Empty, htmlAttributes)
         }
-        
+
+        @if (htmlAttributes.ContainsKey("disabled"))
+        {
+            @Html.HiddenFor(m => m)
+        }
+
         @Html.ValidationMessageFor(m => m, null, new {@class = "help-block"})
     </div>
 </div>
