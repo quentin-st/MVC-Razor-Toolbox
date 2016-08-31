@@ -7,7 +7,10 @@
      * Note: if this field is not required, we'll prepend an empty choice in it (string.empty parameter)
      */
 
-    var htmlAttributes = new {@class = "form-control"};
+    var htmlAttributes = (RouteValueDictionary)ViewBag.htmlAttributes ?? new RouteValueDictionary();
+
+    // Styling
+    htmlAttributes["class"] = HtmlClasses.Input + " " + (htmlAttributes["class"] ?? "");
     
     var required = ViewData.ModelMetadata.IsRequired;
     // Override attribute overriden by "required" = true or "required = "required" attribute on field
@@ -22,6 +25,11 @@
         {
             required = (string) requiredAttr == "required";
         }
+    }
+
+    if (ViewBag.@readonly != null)
+    {
+        htmlAttributes["readonly"] = ViewBag.@readonly;
     }
 }
 
