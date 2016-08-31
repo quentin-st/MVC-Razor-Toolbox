@@ -1,4 +1,4 @@
-﻿namespace $rootnamespace$.Helpers.Razor
+namespace $rootnamespace$.Helpers.Razor
 {
     public class HtmlClasses
     {
