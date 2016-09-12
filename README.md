@@ -7,7 +7,7 @@ This toolbox provides the following helpers and components:
 ### DisplayTemplates
 [Read doc/DisplayTemplates.md](doc/DisplayTemplates.md)
 
-### EditorTemplates
+### EditorTemplates
 [Read doc/EditorTemplates.md](doc/EditorTemplates.md)
 
 ### FlashMessage
