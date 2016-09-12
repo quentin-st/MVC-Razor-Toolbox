@@ -17,17 +17,13 @@
     // HTML attributes
     var htmlAttributes = (RouteValueDictionary)ViewBag.htmlAttributes ?? new RouteValueDictionary();
 
-    // Debugging tip
-    if (HttpContext.Current.IsDebuggingEnabled)
-    {
-        htmlAttributes["data-displaytemplate-type"] = ViewData.ModelMetadata.ModelType.Name;
-    }
+    // Model type
+    htmlAttributes["data-type"] = ViewData.ModelMetadata.ModelType.Name;
 
     htmlAttributes["class"] =
         (ViewBag.kind == "form-group" ? "controls " + HtmlClasses.ControlRaw + " " : "") + // Class depending on kind
         ViewBag.valueClass + " " + // text-date, text-number...
         ViewBag.@class; // Custom classes
-    
 }
 
 @if (ViewBag.kind == "raw")
