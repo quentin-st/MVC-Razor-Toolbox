@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Text;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace $rootnamespace$.Helpers.Razor
 {
@@ -27,7 +28,11 @@ namespace $rootnamespace$.Helpers.Razor
         public static MvcHtmlString AnonymousObjectToHTMLString(object htmlAttributes)
         {
             var dictionary = HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes);
+            return DictionaryToHTMLString(dictionary);
+        }
 
+        public static MvcHtmlString DictionaryToHTMLString(RouteValueDictionary dictionary)
+        {
             return new MvcHtmlString(dictionary.Aggregate("", (current, item) => current + (item.Key + "=\"" + item.Value + "\" ")));
         }
 
