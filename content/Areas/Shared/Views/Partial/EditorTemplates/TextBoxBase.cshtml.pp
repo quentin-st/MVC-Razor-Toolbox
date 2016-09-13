@@ -27,6 +27,9 @@
         htmlAttributes["maxlength"] = maxLength;
     }
 
+    // Model type
+    htmlAttributes["data-type"] = ViewData.ModelMetadata.DataTypeName ?? ViewData.ModelMetadata.ModelType.Name;
+
     // Value
     var value = ViewData.TemplateInfo.FormattedModelValue;
     if (ViewBag.value != null)
@@ -36,12 +39,10 @@
 
     var showLabel = ViewBag.noLabel == null;
     var controlsClasses = showLabel ? HtmlClasses.Control : "control-label";
-    var debugAttribute = HttpContext.Current.IsDebuggingEnabled ? ViewData.ModelMetadata.ModelType.Name : null;
 }
 
 
-<div class="form-group@(Html.ValidationErrorFor(m => m, " has-error"))@(ViewData.ModelMetadata.IsRequired ? " required" : "")"
-     @if (debugAttribute != null) { <text> data-editortemplate-type="@debugAttribute" </text>  }>
+<div class="form-group@(Html.ValidationErrorFor(m => m, " has-error"))@(ViewData.ModelMetadata.IsRequired ? " required" : "")">
     @Html.Partial("~/Areas/Shared/Views/Partial/EditorTemplates/_Label.cshtml")
 
     <div class="controls @controlsClasses">
