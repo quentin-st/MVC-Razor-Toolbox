@@ -18,7 +18,7 @@
     var htmlAttributes = (RouteValueDictionary)ViewBag.htmlAttributes ?? new RouteValueDictionary();
 
     // Model type
-    htmlAttributes["data-type"] = ViewData.ModelMetadata.ModelType.Name;
+    htmlAttributes["data-type"] = ViewData.ModelMetadata.DataTypeName ?? ViewData.ModelMetadata.ModelType.Name;
 
     htmlAttributes["class"] =
         (ViewBag.kind == "form-group" ? "controls " + HtmlClasses.ControlRaw + " " : "") + // Class depending on kind

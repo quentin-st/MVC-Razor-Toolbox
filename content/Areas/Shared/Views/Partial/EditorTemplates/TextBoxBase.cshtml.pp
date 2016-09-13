@@ -28,7 +28,7 @@
     }
 
     // Model type
-    htmlAttributes["data-type"] = ViewData.ModelMetadata.ModelType.Name;
+    htmlAttributes["data-type"] = ViewData.ModelMetadata.DataTypeName ?? ViewData.ModelMetadata.ModelType.Name;
 
     // Value
     var value = ViewData.TemplateInfo.FormattedModelValue;
