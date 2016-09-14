@@ -48,7 +48,7 @@ namespace $rootnamespace$.Helpers
 
             return HttpContext.Current.IsDebuggingEnabled
                 ? list
-                : (List<FlashMessage>)list.Where(m => !m.IsDebug); // Exclude debug messages
+                : list.Where(m => !m.IsDebug).ToList(); // Exclude debug messages
         }
     }
 
