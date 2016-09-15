@@ -3,9 +3,16 @@
 @model object
 
 @{
+    // Kind: either "raw" or "form-group"
+    ViewBag.kind = ViewBag.kind ?? "form-group";
+
+    if (ViewBag.kind != "raw" && ViewBag.kind != "form-group")
+    {
+        throw new Exception("Unknown kind " + ViewBag.kind);
+    }
+    
     // HTML attributes
     var htmlAttributes = (RouteValueDictionary) ViewBag.htmlAttributes ?? new RouteValueDictionary();
-
 
     htmlAttributes["class"] = HtmlClasses.Input + " " + (htmlAttributes["class"] ?? "");
 
@@ -41,16 +48,36 @@
     var controlsClasses = showLabel ? HtmlClasses.Control : "control-label";
 }
 
+@helper Input(object value, RouteValueDictionary htmlAttributes)
+{
+    var input = Html.TextBox("", value, htmlAttributes);
+    
+    if (ViewBag.inputGroupAddon != null)
+    {
+        <div class="input-group">
+            @input
 
-<div class="form-group@(Html.ValidationErrorFor(m => m, " has-error"))@(ViewData.ModelMetadata.IsRequired ? " required" : "")">
-    @Html.Partial("~/Areas/Shared/Views/Partial/EditorTemplates/_Label.cshtml")
+            <span class="input-group-addon">@ViewBag.inputGroupAddon</span>
+        </div>
+    }
+    else
+    {
+        @input
+    }
+    @Html.ValidationMessageFor(m => m, null, new { @class = "help-block" })
+}
 
-    <div class="controls @controlsClasses">
-        @Html.TextBox(
-            "",
-            value,
-            htmlAttributes)
+@if (ViewBag.kind == "raw")
+{
+    @Input(value, htmlAttributes)
+}
+else
+{
+    <div class="form-group@(Html.ValidationErrorFor(m => m, " has-error"))@(ViewData.ModelMetadata.IsRequired ? " required" : "")">
+        @Html.Partial("~/Areas/Shared/Views/Partial/EditorTemplates/_Label.cshtml")
 
-        @Html.ValidationMessageFor(m => m, null, new { @class = "help-block" })
+        <div class="controls @controlsClasses">
+            @Input(value, htmlAttributes)
+        </div>
     </div>
-</div>
+}
