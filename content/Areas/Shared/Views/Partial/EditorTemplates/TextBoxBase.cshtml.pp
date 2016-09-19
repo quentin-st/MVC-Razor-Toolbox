@@ -38,19 +38,17 @@
     htmlAttributes["data-type"] = ViewData.ModelMetadata.DataTypeName ?? ViewData.ModelMetadata.ModelType.Name;
 
     // Value
-    var value = ViewData.TemplateInfo.FormattedModelValue;
-    if (ViewBag.value != null)
-    {
-        value = ViewBag.value;
-    }
+    ViewBag.Value = ViewBag.Value ?? ViewData.TemplateInfo.FormattedModelValue;
 
     var showLabel = ViewBag.noLabel == null;
     var controlsClasses = showLabel ? HtmlClasses.Control : "control-label";
 }
 
-@helper Input(object value, RouteValueDictionary htmlAttributes)
+@helper Input(RouteValueDictionary htmlAttributes)
 {
-    var input = Html.TextBox("", value, htmlAttributes);
+    var input = (string) htmlAttributes["data-type"] == "Password"
+        ? Html.Password("", (object) ViewBag.Value, htmlAttributes)
+        : Html.TextBox("", (object) ViewBag.value, htmlAttributes);
     
     if (ViewBag.inputGroupAddon != null)
     {
@@ -69,7 +67,7 @@
 
 @if (ViewBag.kind == "raw")
 {
-    @Input(value, htmlAttributes)
+    @Input(htmlAttributes)
 }
 else
 {
@@ -77,7 +75,7 @@ else
         @Html.Partial("~/Areas/Shared/Views/Partial/EditorTemplates/_Label.cshtml")
 
         <div class="controls @controlsClasses">
-            @Input(value, htmlAttributes)
+            @Input(htmlAttributes)
         </div>
     </div>
 }
