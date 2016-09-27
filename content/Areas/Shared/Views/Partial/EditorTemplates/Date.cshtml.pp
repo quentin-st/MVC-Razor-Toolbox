@@ -19,18 +19,16 @@
     }
 
     var strDate = date.HasValue ? date.Value.ToString(format) : null;
-    
-    ViewBag.htmlAttributes = new RouteValueDictionary
-    {
-        {"class", "datepicker"},
-        {"Value", strDate},
-        {"data_provide", "datepicker"},
-        {"data_date", strDate},
-        {"data_date_format", format.Replace("M", "m")},
-        {"placeholder", ViewBag.placeholder},
-        {"data-date-min", ViewBag.min_date != null ? HtmlHelpers.ToJavascriptDate(ViewBag.min_date) : null},
-        {"data-date-max", ViewBag.max_date != null ? HtmlHelpers.ToJavascriptDate(ViewBag.max_date) : null}
-    };
+
+    ViewBag.htmlAttributes = (RouteValueDictionary) ViewBag.htmlAttributes ?? new RouteValueDictionary();
+    ViewBag.htmlAttributes["class"] = "datepicker";
+    ViewBag.htmlAttributes["Value"] = strDate;
+    ViewBag.htmlAttributes["data_provide"] = "datepicker";
+    ViewBag.htmlAttributes["data_date"] = strDate;
+    ViewBag.htmlAttributes["data_date_format"] = format.Replace("M", "m");
+    ViewBag.htmlAttributes["placeholder"] = ViewBag.placeholder;
+    ViewBag.htmlAttributes["data-date-min"] = ViewBag.min_date != null ? HtmlHelpers.ToJavascriptDate(ViewBag.min_date) : null;
+    ViewBag.htmlAttributes["data-date-max"] = ViewBag.max_date != null ? HtmlHelpers.ToJavascriptDate(ViewBag.max_date) : null;
 }
 
 @Html.Partial("~/Areas/Shared/Views/Partial/EditorTemplates/TextBoxBase.cshtml")

@@ -13,14 +13,12 @@
 
     var format = System.Threading.Thread.CurrentThread.CurrentUICulture.DateTimeFormat.ShortDatePattern;
 
-    ViewBag.htmlAttributes = new RouteValueDictionary
-    {
-        {"class", "form-control datepicker"},
-        {"data_provide", "datepicker"},
-        {"data_date", dt},
-        {"data_date_format", format.Replace("M", "m")},
-        {"placeholder", ViewBag.placeholder}
-    };
+    ViewBag.htmlAttributes = (RouteValueDictionary) ViewBag.htmlAttributes ?? new RouteValueDictionary();
+    ViewBag.htmlAttributes["class"] = "form-control datepicker";
+    ViewBag.htmlAttributes["data_provide"] = "datepicker";
+    ViewBag.htmlAttributes["data_date"] = dt;
+    ViewBag.htmlAttributes["data_date_format"] = format.Replace("M", "m");
+    ViewBag.htmlAttributes["placeholder"] = ViewBag.placeholder;
 }
 
 @Html.Partial("~/Areas/Shared/Views/Partial/EditorTemplates/TextBoxBase.cshtml")

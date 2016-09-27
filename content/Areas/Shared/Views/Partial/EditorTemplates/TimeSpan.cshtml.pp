@@ -1,22 +1,19 @@
 @using System.Web.Mvc.Html
-@using System.Web.Routing
 @model TimeSpan?
 
 @{
     var value = Model ?? TimeSpan.FromMinutes(10);
 
     ViewBag.value = value;
-    ViewBag.htmlAttributes = new RouteValueDictionary
-    {
-        {"Value", value.ToString("hh\\:mm")},
-        {"class", "form-control timepicker"},
-        {"data_provide", "timepicker"},
-        {"data_minute_step", "5"},
-        {"data_show_meridian", "false"},
-        {"data_disable_focus", "true"},
-        {"data_template", "dropdown"},
-        {"data_default_time", "value"}
-    };
+    ViewBag.htmlAttributes = (RouteValueDictionary) ViewBag.htmlAttributes ?? new RouteValueDictionary();
+    ViewBag.htmlAttributes["Value"] = value.ToString("hh\\:mm");
+    ViewBag.htmlAttributes["class"] = "form-control timepicker";
+    ViewBag.htmlAttributes["data_provide"] = "timepicker";
+    ViewBag.htmlAttributes["data_minute_step"] = "5";
+    ViewBag.htmlAttributes["data_show_meridian"] = "false";
+    ViewBag.htmlAttributes["data_disable_focus"] = "true";
+    ViewBag.htmlAttributes["data_template"] = "dropdown";
+    ViewBag.htmlAttributes["data_default_time"] = "value";
 }
 
 @Html.Partial("~/Areas/Shared/Views/Partial/EditorTemplates/TextBoxBase.cshtml")

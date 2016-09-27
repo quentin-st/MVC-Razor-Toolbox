@@ -3,8 +3,8 @@
 @model Boolean?
 
 @{
-    var htmlAttributes = new RouteValueDictionary {{"class", ViewBag.@class}};
-
+    var htmlAttributes = (RouteValueDictionary) ViewBag.htmlAttributes ?? new RouteValueDictionary();
+    
     if (ViewBag.@readonly != null)
     {
         htmlAttributes["readonly"] = ViewBag.@readonly;

@@ -3,10 +3,10 @@
 @model object
 
 @{
-    var htmlAttributes = new RouteValueDictionary
-    {
-        {"class", HtmlClasses.Input + " input-block-level "}
-    };
+    var htmlAttributes = (RouteValueDictionary) ViewBag.htmlAttributes ?? new RouteValueDictionary();
+    
+    htmlAttributes["class"] = HtmlClasses.Input + " input-block-level ";
+    
     if (ViewBag.placeholder != null)
     {
         htmlAttributes.Add("placeholder", ViewBag.placeholder);

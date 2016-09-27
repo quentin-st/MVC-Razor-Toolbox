@@ -2,10 +2,8 @@
 @model decimal?
 
 @{
-    ViewBag.htmlAttributes = new RouteValueDictionary
-    {
-        { "data-autonumeric", "true" }
-    };
+    ViewBag.htmlAttributes = (RouteValueDictionary) ViewBag.htmlAttributes ?? new RouteValueDictionary();
+    ViewBag.htmlAttributes["data-autonumeric"] = "true";
 
     // AutoNumeric needs dd.dd instead of dd,dd
     var numberFormatInfo = new NumberFormatInfo { NumberDecimalSeparator = "." };

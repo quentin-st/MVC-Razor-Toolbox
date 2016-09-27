@@ -10,11 +10,13 @@
     {
         throw new Exception("Unknown kind " + ViewBag.kind);
     }
-    
+
     // HTML attributes
     var htmlAttributes = (RouteValueDictionary) ViewBag.htmlAttributes ?? new RouteValueDictionary();
 
-    htmlAttributes["class"] = HtmlClasses.Input + " " + (htmlAttributes["class"] ?? "");
+    htmlAttributes["class"] = (HtmlClasses.Input + " "
+        + htmlAttributes["class"] + " "
+        + (ViewBag.@class ?? "")).Trim();
 
     if (ViewBag.type != null)
     {

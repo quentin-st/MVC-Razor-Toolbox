@@ -7,7 +7,7 @@
      * Note: if this field is not required, we'll prepend an empty choice in it (string.empty parameter)
      */
 
-    var htmlAttributes = (RouteValueDictionary)ViewBag.htmlAttributes ?? new RouteValueDictionary();
+    var htmlAttributes = (RouteValueDictionary) ViewBag.htmlAttributes ?? new RouteValueDictionary();
 
     // Styling
     htmlAttributes["class"] = HtmlClasses.Input + " " + (htmlAttributes["class"] ?? "");
